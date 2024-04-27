@@ -16,6 +16,12 @@ Frame-by-frame difference reporting:
 ```bash
 ffmpeg -i video.mp4 -vf "select='gt(scene,0.4)',metadata=print" -an -f null -
 ```
+Detailed version:
+```bash
+ffmpeg -i video.mp4 -vf "select='gt(scene,0.4)',showinfo" -an -f null -
+```
+
+
 
 ## Still frame sequence statistics (for `png`-s in a folder)
 
@@ -34,12 +40,21 @@ ffmpeg -framerate 24 -i input_%03d.png -c:v libx264 -pix_fmt yuv420p output.mp4
 ```bash
 ffmpeg -i output.mp4 -vf "select='gt(scene,0.4)',metadata=print" -an -f null -
 ```
+Detailed version:
+```bash
+ffmpeg -i output.mp4 -vf "select='gt(scene,0.4)',showinfo" -an -f null -
+```
 
 #### Direct analysis of `png`-sequences:
 
 ```bash
 ffmpeg -framerate 24 -i input_%03d.png -vf "select='gt(scene,0.4)',metadata=print" -an -f null -
 ```
+Detailed version:
+```bash
+ffmpeg -framerate 24 -i input_%03d.png -vf "select='gt(scene,0.4)',showinfo" -an -f null -
+```
+
 
 (Preferred.)
 

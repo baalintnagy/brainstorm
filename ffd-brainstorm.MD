@@ -15,9 +15,9 @@ ffmpeg -i video.mp4 -vf "select='gt(scene,0.4)',metadata=print" -an -f null -
 
 ## Still frame sequence statistics (for `png`-s in a folder)
 
-Compare consecutive files. Just POC.
+Compare consecutive `png` files. Currently just a POC.
 
-Python code:
+Python code: [a relative link](png-seq-stat.py)
 
 ```python
 import cv2

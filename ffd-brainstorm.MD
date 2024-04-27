@@ -4,6 +4,7 @@
 
 The difference between consecutive frames exceeds a tuneable threshold. 
 Limitations: these methods will report frames participating in intentional cuts as false-positive.
+This might be mitigated by partitioning the frames by scenes.
 
 ## Video file analyzers
 
@@ -57,6 +58,8 @@ for i in range(1, len(images)):
 print("Faulty frames detected:", faulty_frames)
 
 ```
+| Room for improvement: considering more frames, using statistical methods.
+
 
 ## Testing
 

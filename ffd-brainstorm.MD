@@ -2,16 +2,16 @@
 
 ## Detection principle
 
-Measuring the *difference* between consecutive frames. If the difference exceeds a tuneable threshold: the frame is reported.
+Measuring the *difference* between consecutive frames. If this *difference* exceeds a tuneable threshold: the frame is reported.
 
 Limitations: these methods will report frames participating in intentional cuts as false-positive.
-This might be mitigated by partitioning the frames by scenes.
+The problem might be mitigated by partitioning the frames by scenes.
 
 ## Video file analyzers
 
 ### [`ffmpeg`](https://ffmpeg.org)
 
-This utility can analyze video input.
+Frame-by-frame difference reporting:
 
 ```bash
 ffmpeg -i video.mp4 -vf "select='gt(scene,0.4)',metadata=print" -an -f null -

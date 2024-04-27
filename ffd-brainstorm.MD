@@ -17,7 +17,7 @@ ffmpeg -i video.mp4 -vf "select='gt(scene,0.4)',metadata=print" -an -f null -
 
 Compare consecutive `png` files. Currently just a POC.
 
-Python code: [a relative link](png-seq-stat.py)
+Python code: [png-seq-stat.py](png-seq-stat.py)
 
 ```python
 import cv2

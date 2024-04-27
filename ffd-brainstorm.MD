@@ -2,21 +2,52 @@
 
 ## Detection principle
 
-The difference between consecutive frames exceeds a tuneable threshold. 
+Measuring the *difference* between consecutive frames. If the difference exceeds a tuneable threshold: the frame is reported.
+
 Limitations: these methods will report frames participating in intentional cuts as false-positive.
 This might be mitigated by partitioning the frames by scenes.
 
 ## Video file analyzers
 
-For example `ffmpeg` utility can analyze video input.
+### [https://ffmpeg.org](`ffmpeg`)
 
-``` bash
+This utility can analyze video input.
+
+```bash
 ffmpeg -i video.mp4 -vf "select='gt(scene,0.4)',metadata=print" -an -f null -
 ```
 
 ## Still frame sequence statistics (for `png`-s in a folder)
 
-Compare consecutive `png` files. Currently just a POC.
+### [https://ffmpeg.org](`ffmpeg`) again:
+
+#### Convert to video and then analyze
+
+1. Convert the frames to video:
+
+```bash
+ffmpeg -framerate 24 -i input_%03d.png -c:v libx264 -pix_fmt yuv420p output.mp4
+```
+
+2. Analyze the exported video:
+
+```bash
+ffmpeg -i output.mp4 -vf "select='gt(scene,0.4)',metadata=print" -an -f null -
+```
+
+#### Direct analysis of `png`-sequences:
+
+```bash
+ffmpeg -framerate 24 -i input_%03d.png -vf "select='gt(scene,0.4)',metadata=print" -an -f null -
+```
+
+(Preferred.)
+
+## Custom development
+
+### POC python prototype
+
+Compare consecutive `png` files. (POC)
 
 Python code: [png-seq-stat.py](png-seq-stat.py)
 
@@ -58,7 +89,9 @@ for i in range(1, len(images)):
 print("Faulty frames detected:", faulty_frames)
 
 ```
-> Room for improvement: 
+
+Room for improvement: 
+
 - consider more frames
 - use statistical methods
 

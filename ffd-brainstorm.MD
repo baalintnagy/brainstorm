@@ -58,7 +58,9 @@ for i in range(1, len(images)):
 print("Faulty frames detected:", faulty_frames)
 
 ```
-| Room for improvement: considering more frames, using statistical methods.
+> Room for improvement: 
+- consider more frames
+- use statistical methods
 
 
 ## Testing

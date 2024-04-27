@@ -9,7 +9,7 @@ This might be mitigated by partitioning the frames by scenes.
 
 ## Video file analyzers
 
-### [https://ffmpeg.org](`ffmpeg`)
+### [`ffmpeg`](https://ffmpeg.org)
 
 This utility can analyze video input.
 
@@ -19,7 +19,7 @@ ffmpeg -i video.mp4 -vf "select='gt(scene,0.4)',metadata=print" -an -f null -
 
 ## Still frame sequence statistics (for `png`-s in a folder)
 
-### [https://ffmpeg.org](`ffmpeg`) again:
+### [`ffmpeg`](https://ffmpeg.org) again:
 
 #### Convert to video and then analyze
 
